@@ -21,6 +21,7 @@ uint8_t saturation = 0;
 uint8_t counter = 0;
 
 void twinkle() {
+  fadeToBlackBy(leds, NUM_LEDS, FADE_TIME);
   leds[random8(50)] = CHSV(hue, saturation, 255);
   FastLED.show();
 }
@@ -37,7 +38,6 @@ void twinkle() {
 void setup() {
   FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
   FastLED.setBrightness(BRIGHTNESS);
-  fadeToBlackBy(leds, NUM_LEDS, FADE_TIME);
 }
 
 void loop() {
